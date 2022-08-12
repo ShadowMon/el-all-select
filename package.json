@@ -1,6 +1,6 @@
 {
   "name": "el-all-select",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "带有全部选项的el-select组件",
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -9,6 +9,7 @@
     "commit": "git-cz",
     "release": "standard-version"
   },
+  "homepage": "https://shadowmon.github.io/el-all-select/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ShadowMon/el-all-select.git"
