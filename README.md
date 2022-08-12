@@ -32,7 +32,7 @@ npm i el-all-select
 </template>
 
 <script>
-import ElAllSelect from 'ElAllSelect';
+import ElAllSelect from 'el-all-select';
 
 export default {
   components: {
