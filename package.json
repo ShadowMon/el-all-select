@@ -1,6 +1,6 @@
 {
   "name": "el-all-select",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "带有全部选项的el-select组件",
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -54,7 +54,7 @@
     "commitizen": "^4.2.5",
     "cz-conventional-emoji": "^1.0.2",
     "husky": "^8.0.1",
-    "standard-version": "^9.5.0"    
+    "standard-version": "^9.5.0"
   },
   "eslintConfig": {
     "root": true,
@@ -84,5 +84,5 @@
     "select",
     "全选"
   ],
-  "author": "shadowmon"  
+  "author": "shadowmon"
 }
