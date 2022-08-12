@@ -38,7 +38,6 @@ export default {
   },
   methods: {
     onChange(val) {
-      let res
       console.log(val)
     },
     onLink(val) {
