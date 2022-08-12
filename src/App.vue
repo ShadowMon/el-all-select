@@ -1,7 +1,18 @@
 <template>
   <div>
-  {{value}}
-    <el-all-select v-model="value" select-all select-label="全选列表" multiple collapse-tags clearable :options="options" placeholder="请选择列表" @change="onChange" @handleLink="onLink">
+    {{ value }}
+    <el-all-select
+      v-model="value"
+      select-all
+      select-label="全选列表"
+      multiple
+      collapse-tags
+      clearable
+      :options="options"
+      placeholder="请选择列表"
+      @change="onChange"
+      @handleLink="onLink"
+    >
       <!-- <template #tpl="{row}">
         {{row.label}}
       </template> -->
@@ -11,7 +22,7 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       value: [],
       options: [
@@ -26,10 +37,11 @@ export default {
     }
   },
   methods: {
-    onChange (val) {
+    onChange(val) {
+      let res
       console.log(val)
     },
-    onLink (val) {
+    onLink(val) {
       console.log(val)
     }
   }
