@@ -5,9 +5,11 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
     "commit": "git-cz",
-    "release": "standard-version"
+    "release": "standard-version",
+    "prepare": "husky install",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx,.vue,src",
+    "lint-staged": "lint-staged"        
   },
   "homepage": "https://shadowmon.github.io/el-all-select/",
   "repository": {
@@ -16,14 +18,12 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
-    "src/*_/_.{js,vue}": [
-      "npm run lint",
-      "git add"
-    ]
+    "src/**/*.{js,jsx,ts,tsx,vue}": "npm run lint",
+    "src/**/*.{js,jsx,tsx,ts,vue,less,sass,md}": [ "prettier --write" ] 
   },
   "config": {
     "commitizen": {
@@ -44,18 +44,20 @@
     "@vue/cli-service": "~5.0.0",
     "@vue/eslint-config-standard": "^6.1.0",
     "babel-plugin-component": "^1.1.1",
+    "commitizen": "^4.2.5",
+    "cz-conventional-emoji": "^1.0.2",
     "eslint": "^7.32.0",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-vue": "^8.0.3",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
     "sass": "^1.54.4",
     "sass-loader": "^13.0.2",
-    "vue-template-compiler": "^2.6.14",
-    "commitizen": "^4.2.5",
-    "cz-conventional-emoji": "^1.0.2",
-    "husky": "^8.0.1",
-    "standard-version": "^9.5.0"
+    "standard-version": "^9.5.0",
+    "vue-template-compiler": "^2.6.14"
   },
   "eslintConfig": {
     "root": true,
