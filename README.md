@@ -4,8 +4,8 @@
 # description
 > The component is based on element-ui.it has functions, such as: filter,select all etc.
 
-## Demo
-https://github.com/ShadowMon/el-all-select.git
+## Live demo
+https://shadowmon.github.io/el-all-select
 
 ## Installation
 ```shell
@@ -93,7 +93,7 @@ export default {
 | tpl        | Option 组件列表内容 |
 
 ## 示例
-![el-select-all](https://shadowmon.github.io/el-all-select/src/assets/el-select-all.gif)
+![el-select-all](https://shadowmon.github.io/el-all-select/assets/el-select-all.gif)
 
 ## 相关文档
 [el-select](https://element.eleme.cn/2.8/#/zh-CN/component/select)
