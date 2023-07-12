@@ -38,10 +38,10 @@ export default {
   },
   methods: {
     onChange(val) {
-      console.log(val)
+      console.log('onChange', val)
     },
     onLink(val) {
-      console.log(val)
+      console.log('onLink', val)
     }
   }
 }

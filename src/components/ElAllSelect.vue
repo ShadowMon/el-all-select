@@ -1,18 +1,38 @@
 <template>
   <div class="app-container">
-    <el-select v-model="selected" v-bind="{ ...$attrs }" v-on="{ ...$listeners }" @change="handleSelect"
-      :class="['selected', { 'iscolor': color }]" :popper-append-to-body="false">
+    <el-select
+      v-model="selected"
+      v-bind="{ ...$attrs }"
+      v-on="{ ...$listeners }"
+      @change="handleSelect"
+      :class="['selected', { iscolor: color }]"
+      :popper-append-to-body="false"
+    >
       <div class="selected-all" v-if="selectAll">
-        <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">{{ selectLabel
-        }}</el-checkbox>
+        <el-checkbox
+          :indeterminate="isIndeterminate"
+          v-model="checkAll"
+          @change="handleCheckAllChange"
+          >{{ selectLabel }}</el-checkbox
+        >
       </div>
       <el-checkbox-group v-model="selected">
-        <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+        <el-option
+          v-for="item in options"
+          :key="item.value"
+          :label="item.label"
+          :value="item.value"
+        >
           <el-checkbox class="bindCheckbox" :label="item.value">
             <slot name="tpl" :row="item">
               <div class="label-tags">
                 <span>{{ item.label }}</span>
-                <span class="label-set" v-if="item.name" @click.stop="$emit('handleLink', item)">{{ item.name }}</span>
+                <span
+                  class="label-set"
+                  v-if="item.name"
+                  @click.stop.prevent="$emit('handleLink', item)"
+                  >{{ item.name }}</span
+                >
               </div>
             </slot>
           </el-checkbox>
@@ -51,7 +71,7 @@ export default {
       }
     }
   },
-  data () {
+  data() {
     const selected = this.value || []
     return {
       selected,
@@ -60,13 +80,14 @@ export default {
     }
   },
   methods: {
-    handleSelect (value) {
+    handleSelect(value) {
       const checkedCount = value.length
       this.checkAll = checkedCount === this.options.length
-      this.isIndeterminate = checkedCount > 0 && checkedCount < this.options.length
+      this.isIndeterminate =
+        checkedCount > 0 && checkedCount < this.options.length
     },
-    handleCheckAllChange (val) {
-      const data = this.options.map(item => item.value)
+    handleCheckAllChange(val) {
+      const data = this.options.map((item) => item.value)
       this.selected = val ? data : []
       this.isIndeterminate = false
       this.$emit('input', this.selected)
@@ -76,7 +97,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.selected ::v-deep .el-select-dropdown.is-multiple .el-select-dropdown__item.selected::after {
+.selected
+  ::v-deep
+  .el-select-dropdown.is-multiple
+  .el-select-dropdown__item.selected::after {
   display: none;
 }
 
@@ -86,7 +110,7 @@ export default {
 
 .selected-all {
   padding: 0 20px;
-  line-height: 34px
+  line-height: 34px;
 }
 
 .bindCheckbox {
@@ -106,15 +130,14 @@ export default {
   }
 }
 
-$colors: #0A70F5, #00B365, #FFC300, #F5483B, #F03096,
-  #8E3DEB, #00B8B1, #FF8800, #0FA4FA, #FF5E1A;
+$colors: #0a70f5, #00b365, #ffc300, #f5483b, #f03096, #8e3deb, #00b8b1, #ff8800,
+  #0fa4fa, #ff5e1a;
 
 .iscolor ::v-deep .el-checkbox-group li {
   @each $c in $colors {
     $i: index($colors, $c);
 
     &:nth-child(#{$i}) {
-
       .el-checkbox__input.is-checked .el-checkbox__inner,
       .el-checkbox__input.is-indeterminate .el-checkbox__inner {
         background-color: $c;
